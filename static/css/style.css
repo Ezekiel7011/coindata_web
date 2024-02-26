@@ -1,0 +1,364 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin: 0;
+    background-color: #000000;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px
+}
+
+.header {
+    height: 60px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+
+button {
+    background-color: #5c5c5c;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    /* 使用相對單位定義 padding */
+    margin: 0.2em;
+    cursor: pointer;
+
+    width: auto;
+    /* 自動適應內容寬度 */
+    height: auto;
+    /* 自動適應內容高度 */
+
+    /* 設定字體大小為相對單位 */
+    font-size: 1em;
+    /* 1em 相對於父元素的字體大小 */
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.top_content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.table_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.block {
+    background-color: #333;
+    width: 30%;
+    /* height: 20vh; */
+    margin-left: 2.5%;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+    /* 自动平均分布 */
+    gap: 10px;
+    /* 间距 */
+}
+
+.block td {
+    /* display: block; */
+    /* 确保每个 td 独占一列 */
+    margin-bottom: 10px;
+    /* 调整间距 */
+}
+
+
+
+.info-list-block {
+    background-color: #333;
+    width: 900px;
+    height: 800px;
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.real-time-block {
+    background-color: #333;
+    width: 450px;
+    height: 800px;
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* 設定 info-list-block 與 real-time-block 之間的距離為1% */
+.info-list-block+.real-time-block {
+    margin-left: 1%;
+}
+
+.block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+.block-buttons {
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.block-buttons-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.scrollable-table {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-collapse: collapse;
+
+}
+
+th {
+    position: sticky;
+    top: 0px;
+    /* 設定為 th 的高度 */
+    background-color: rgba(79, 192, 210, 0.7);
+    color: #ffffff;
+    width: 25vw;
+    height: 50px;
+    z-index: 1;
+    /* 將 z-index 設置為 1 以確保在 td 下方 */
+}
+
+td {
+    background-color: #363636;
+    color: #ffffff;
+    width: auto;
+    height: 50px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+td.long {
+    background-color: rgba(25, 240, 25, 0.3) !important;
+}
+
+td.short {
+    background-color: rgba(243, 38, 38, 0.3) !important;
+}
+
+tr:hover td {
+    background-color: #2a2a2a;
+    transition: all 0.3s ease-in-out;
+}
+
+
+tr {
+    border-bottom: 1px solid #2a2a2a;
+}
+
+tr:last-of-type {
+    border-bottom: none;
+}
+
+
+
+.options-list {
+    max-height: 50vh;
+    /* 設置選項列表的最大高度 */
+    overflow-y: auto;
+    /* 啟用垂直滾動 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 1000;
+    width: 150px;
+    /* 設定寬度與按鈕相同 */
+    text-align: center;
+    /* 文字置中 */
+}
+
+
+.options-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.options-list li:hover {
+    background-color: #555;
+}
+
+.page-button {
+    background-color: #5c5c5c;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    width: 5vh;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#pageButtons {
+    text-align: right;
+    margin-right: 10%;
+}
+
+
+.selected-button {
+    background-color: #4CAF50;
+    /* 綠色或其他你想要的顏色 */
+    color: white;
+}
+
+
+/* 頁面按鈕的當前樣式 */
+.page-button.current-page {
+    background-color: #ff9933;
+    /* 你可以根據需要設置當前頁面的不同樣式 */
+    color: #000;
+    /* 當前頁面文字的顏色 */
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    width: 330px;
+    height: 330;
+    /* or any other fixed width */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+
+.liquidation_card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    height: 330;
+    /* or any other fixed width */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+
+.body .exchange {
+    margin-bottom: 10px;
+}
+
+.exchange {
+    display: flex;
+    /* 使用Flexbox */
+    justify-content: space-between;
+    /* 左右兩端對齊並在中間保留空格 */
+    padding: 5px;
+    /* margin-bottom: 10px; */
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+
+
+.exchange .left {
+    display: flex;
+    flex-direction: column;
+}
+
+.exchange .right {
+    display: flex;
+    flex-direction: row;
+    /* 將.right內的元素設定為橫向排列 */
+    align-items: center;
+    /* 若需要，可確保項目在垂直方向上居中對齊 */
+}
+
+.exchange .right div:not(:last-child) {
+    margin-right: 10px;
+    /* 或者根據您的設計需求設置適當的值 */
+}
+
+
+.exchange span {
+    display: block;
+    /* 讓每個span獨占一行 */
+    margin-bottom: 5px;
+    /* span元素之間的間距 */
+}
+
+.details {
+    font-size: 12px;
+    /* 小字描述的字體大小 */
+    color: #999;
+    /* 小字描述的字體顏色 */
+}
+
+.percentage-bar-container {
+    width: 100%;
+    background-color: #ddd;
+    height: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.percentage-bar {
+    height: 100%;
+    float: left;
+}
+
+.green-bar {
+    background-color: #4CAF50;
+}
+
+.red-bar {
+    background-color: #f44336;
+}
+
+.positive {
+    color: #2ecc71;
+}
+
+.negative {
+    color: #e74c3c;
+}

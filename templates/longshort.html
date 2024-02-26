@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/longshortscript.js') }}" defer></script>
+    <title>Long&Short</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="button-container">
+            <button id="Liquidations_page_btn" onclick="navigateTo('index')">爆倉數據</button>
+            <button id="LongShort_page_btn" onclick="navigateTo('longshort')">多空比</button>
+        </div>
+    </div>
+    <div class="block-buttons">
+        <button id="1hr_btn" data-time-range="1">1小時</button>
+        <button id="4hr_btn" data-time-range="4">4小時</button>
+        <button id="12hr_btn" data-time-range="12">12小時</button>
+        <button id="24hr_btn" data-time-range="24">24小時</button>
+    </div>
+    <div class="top_content">
+        <div class="card-container">
+            <div class="card" id="longblock">
+                <div class="exchange">
+                    <div class="left">
+                        <span>None小時虛擬貨幣交易</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Binance BTC/USDT</span>
+                        <span class="details">小額交易地址</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Binance BTC/USDT</span>
+                        <span class="details">大額賣單交易地址</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Binance BTC/USDT</span>
+                        <div class="details">大額買單交易地址</div>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Bitfinex每日交易量</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" id="shortblock">
+                <div class="exchange">
+                    <div class="left">
+                        <span>None小時虛擬貨幣交易</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Binance BTC/USDT</span>
+                        <span class="details">小額交易地址</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Binance BTC/USDT</span>
+                        <span class="details">大額賣單交易地址</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Binance BTC/USDT</span>
+                        <div class="details">大額買單交易地址</div>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>Bitfinex每日交易量</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 另一個卡片的結構類似，可以複制上面的卡片並進行必要的數據更改 -->
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- 在 info-list-block 的左上角添加說明文字和兩個按鈕 -->
+        <div class="info-list-block">
+            <div class="block-header">
+                <h2>多空比</h2>
+                <div class="block-buttons">
+                    <button id="infoListButton1">BTC</button>
+                    <button id="infoListButton3">5 minute</button>
+                </div>
+            </div>
+            <table id="infoListTable">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody id="infoListTableBody"> <!-- 新增 tbody 元素 -->
+                    <!-- 表格內容將由 JavaScript 動態生成 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 在 real-time-block 的左上角添加說明文字和按鈕靠右上 -->
+        <div class="real-time-block">
+            <div class="block-header">
+                <h2>longshort Real Time</h2>
+            </div>
+            <div class="scrollable-table">
+                <table id="real-time-liquidations-table">
+                    <thead>
+                        <tr>
+                            <th>Coinname</th>
+                            <th>Price</th>
+                            <th>Value</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody class="real-time" id="realTimeTableBody"> <!-- 新增 tbody 元素 -->
+                        <!-- 表格內容將由 JavaScript 動態生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="table_content">
+        <table>
+            <thead>
+                <tr>
+                    <th>排名</th>
+                    <th>幣種</th>
+                    <th>價格</th>
+                    <th>價格(24h%)</th>
+                    <th>多(5分鐘) %</th>
+                    <th>空(5分鐘) %</th>
+                    <th>多(15分鐘) %</th>
+                    <th>空(15分鐘) %</th>
+                    <th>多(30分鐘) %</th>
+                    <th>空(30分鐘) %</th>
+                </tr>
+            </thead>
+            <tbody id="total_table"> <!-- 新增 tbody 元素 -->
+                <!-- 表格內容將由 JavaScript 動態生成 -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pageButtons"></div>
+</body>
+
+</html>

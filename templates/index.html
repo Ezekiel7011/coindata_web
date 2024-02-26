@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Liquidation</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="button-container">
+            <button id="Liquidations_page_btn" onclick="navigateTo('index')">爆倉數據</button>
+            <button id="LongShort_page_btn" onclick="navigateTo('longshort')">多空比</button>
+        </div>
+    </div>
+    <div class="top_content">
+        <div class="card-container">
+            <div class="liquidation_card" id="h1_rekt">
+                <div class="exchange">
+                    <div class="left">
+                        <span>1小時爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>多單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>空單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="liquidation_card" id="h4_rekt">
+                <div class="exchange">
+                    <div class="left">
+                        <span>4小時爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>多單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>空單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top_content">
+        <div class="card-container">
+            <div class="liquidation_card" id="h12_rekt">
+                <div class="exchange">
+                    <div class="left">
+                        <span>12小時爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>多單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>空單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="liquidation_card" id="h24_rekt">
+                <div class="exchange">
+                    <div class="left">
+                        <span>24小時爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>多單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+                <div class="exchange">
+                    <div class="left">
+                        <span>空單爆倉</span>
+                    </div>
+                    <div class="right">
+                        <div class="number">None</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content" id="largest_liquidation">最近24小時，共有 人被爆倉 ，爆倉總金額為
+        最大單筆爆倉單發生在 - 價值 </div>
+
+
+
+    <div class="content">
+        <!-- 在 info-list-block 的左上角添加說明文字和兩個按鈕 -->
+        <div class="info-list-block">
+            <div class="block-header">
+                <h2>交易所爆倉</h2>
+                <div class="block-buttons">
+                    <button id="infoListButton1">All</button>
+                    <button id="infoListButton2">1 hr</button>
+                </div>
+            </div>
+            <div class="scrollable-table">
+                <table id="infoListTable">
+                    <thead>
+                        <tr>
+                            <th>交易所</th>
+                            <th>爆倉金額</th>
+                            <th>多單爆倉</th>
+                            <th>空單爆倉</th>
+                            <th>佔比</th>
+                            <th>佔比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="infoListTableBody"> <!-- 新增 tbody 元素 -->
+                        <!-- 表格內容將由 JavaScript 動態生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 在 real-time-block 的左上角添加說明文字和按鈕靠右上 -->
+        <div class="real-time-block">
+            <div class="block-header">
+                <h2>實時爆倉</h2>
+                <div class="block-buttons-right">
+                    <button id="realTimeButton2">All</button>
+                    <button id="realTimeButton1">All</button>
+                    <button id="realTimeButton3">All</button>
+                </div>
+            </div>
+            <div class="scrollable-table">
+                <table id="real-time-liquidations-table">
+                    <thead>
+                        <tr>
+                            <th>幣種</th>
+                            <th>價格</th>
+                            <th>金額</th>
+                            <th>時間</th>
+                        </tr>
+                    </thead>
+                    <tbody id="realTimeTableBody"> <!-- 新增 tbody 元素 -->
+                        <!-- 表格內容將由 JavaScript 動態生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="table_content">
+        <table>
+            <thead>
+                <tr>
+                    <th>排名</th>
+                    <th>幣種</th>
+                    <th>價格</th>
+                    <th>價格(24h%)</th>
+                    <th>1小時多單爆倉</th>
+                    <th>1小時空單爆倉</th>
+                    <th>4小時多單爆倉</th>
+                    <th>4小時空單爆倉</th>
+                    <th>24小時多單爆倉</th>
+                    <th>24小時空單爆倉</th>
+                </tr>
+            </thead>
+            <tbody id="total_table"> <!-- 新增 tbody 元素 -->
+                <!-- 表格內容將由 JavaScript 動態生成 -->
+            </tbody>
+        </table>
+    </div>
+    <div id="pageButtons"></div>
+
+    <!-- ... (其餘內容) -->
+</body>
+
+</html>
