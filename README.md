@@ -30,7 +30,7 @@ git clone https://github.com/Ezekiel7011/coindata_web.git
 2. 進入專案目錄：
 
 ```bash
-cd 專案目錄
+cd coindata_web
 ```
 
 3. 安裝依賴：
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ## 配置
 
-- 根據`db_config`目錄下的`liquidation_db_config.txt`和`lonshort_db_config.txt`文件配置資料庫連接。
+- 根據`db_config`目錄下的`liquidation_db_config.txt`和`lonshort_db_config.txt`文件配置資料庫連接(database port預設3306)。
 - `db`目錄下的`schema.sql`有提供部分資料供網頁展示。
 - 修改`app.py`中的配置（如果需要）。
 
