@@ -1,8 +1,10 @@
-# 專案名稱
+# 虛擬貨幣資訊平台
 
 ## 簡介
 
 這是一個基於 Flask 框架的 Web 應用，旨在提爆倉資料和多空比資料之平台。它利用 MySQL 作為後端資料庫，並通過一個直觀的 Web 界面與用戶互動。
+
+![Example Image](https://github.com/Ezekiel7011/coindata_web/blob/main/static/img/liquidationpage.jpg "示例圖片")
 
 ## 功能
 
@@ -22,7 +24,7 @@
 1. clone 專案到本地：
 
 ```bash
-git clone <專案Git倉庫URL>
+git clone https://github.com/Ezekiel7011/coindata_web.git
 ```
 
 2. 進入專案目錄：
